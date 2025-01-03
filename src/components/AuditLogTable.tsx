@@ -21,7 +21,7 @@ const columns: GridColDef[] = [
 	},
 ];
 
-const AuditLogTable: React.FC = () => {
+const AuditLogTable = () => {
 	const [logs, setLogs] = React.useState<AuditLog[]>([]);
 
 	React.useEffect(() => {
