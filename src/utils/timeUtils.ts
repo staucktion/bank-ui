@@ -1,11 +1,11 @@
 export const formatToLocalTimezone = (timestamp: string) => {
-    const date = new Date(timestamp);
-    return new Intl.DateTimeFormat("default", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-    }).format(date);
+	const date = new Date(timestamp);
+	return new Intl.DateTimeFormat("default", {
+		hour: "2-digit",
+		minute: "2-digit",
+		day: "2-digit",
+		month: "2-digit",
+		year: "numeric",
+		hour12: false, // 24-hour format
+	}).format(date);
 };
