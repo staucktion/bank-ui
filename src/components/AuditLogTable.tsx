@@ -17,7 +17,7 @@ const columns: GridColDef[] = [
 		field: "timestamp",
 		headerName: "Timestamp",
 		width: 200,
-		valueGetter: (value, row) => formatToLocalTimezone(row.performed_at),
+		valueGetter: (_, row) => formatToLocalTimezone(row.performed_at),
 	},
 ];
 
