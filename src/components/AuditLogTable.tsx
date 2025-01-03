@@ -57,7 +57,8 @@ const AuditLogTable = () => {
 						},
 					},
 				}}
-				pageSizeOptions={[50]}
+				pageSizeOptions={[5, 25, 50]}
+				disableRowSelectionOnClick
 			/>
 		</Box>
 	);
