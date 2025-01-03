@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Container, CssBaseline, Typography, Paper } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import AuditLogTable from "./components/AuditLogTable";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const themeMode = "light";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const defaultTheme = createTheme({
+		palette: { mode: themeMode },
+		typography: { fontFamily: "Roboto, sans-serif" },
+	});
+
+	return (
+		<>
+			<ThemeProvider theme={defaultTheme}>
+				<CssBaseline />
+				<div
+					style={{
+						height: "100vh",
+						background: "linear-gradient(330deg,rgb(255, 228, 108) 5%,rgb(233, 253, 248) 50%)",
+					}}
+				>
+					<Container maxWidth="lg" sx={{ pt: 5 }}>
+						<Paper elevation={10} sx={{ padding: 3 }}>
+							<Typography variant="h4" color="primary" gutterBottom>
+								Audit Logs
+							</Typography>
+							<Typography variant="subtitle1" color="textSecondary" gutterBottom>
+								View detailed logs of actions performed in the bank application.
+							</Typography>
+							<AuditLogTable />
+						</Paper>
+					</Container>
+				</div>
+			</ThemeProvider>
+		</>
+	);
 }
 
-export default App
+export default App;
