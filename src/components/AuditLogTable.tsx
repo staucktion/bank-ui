@@ -1,6 +1,8 @@
-import * as React from "react";
+import RefreshIcon from "@mui/icons-material/Refresh";
+import { IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import * as React from "react";
 import axiosInstance from "../utils/axiosApi";
 import { formatToLocalTimezone } from "../utils/timeUtils";
 
@@ -24,20 +26,27 @@ const columns: GridColDef[] = [
 const AuditLogTable = () => {
 	const [logs, setLogs] = React.useState<AuditLog[]>([]);
 
+	const fetchLogs = async () => {
+		try {
+			const response = await axiosInstance.get("/auditlogs");
+			setLogs(response.data);
+		} catch (error) {
+			console.error("Error fetching audit logs:", error);
+		}
+	};
+
 	React.useEffect(() => {
-		const fetchLogs = async () => {
-			try {
-				const response = await axiosInstance.get("/auditlogs");
-				setLogs(response.data);
-			} catch (error) {
-				console.error("Error fetching audit logs:", error);
-			}
-		};
 		fetchLogs();
 	}, []);
 
 	return (
-		<Box sx={{ height: 400, width: "100%" }}>
+		<Box sx={{ width: "100%" }}>
+			<Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+				<IconButton color="primary" onClick={fetchLogs}>
+					<RefreshIcon />
+				</IconButton>
+			</Box>
+
 			<DataGrid
 				rows={logs}
 				columns={columns}
@@ -48,7 +57,7 @@ const AuditLogTable = () => {
 						},
 					},
 				}}
-				pageSizeOptions={[5]}
+				pageSizeOptions={[50]}
 			/>
 		</Box>
 	);
