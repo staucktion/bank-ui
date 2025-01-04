@@ -47,19 +47,7 @@ const AuditLogTable = () => {
 				</IconButton>
 			</Box>
 
-			<DataGrid
-				rows={logs}
-				columns={columns}
-				initialState={{
-					pagination: {
-						paginationModel: {
-							pageSize: 5,
-						},
-					},
-				}}
-				pageSizeOptions={[5, 25, 50]}
-				disableRowSelectionOnClick
-			/>
+			<DataGrid rows={logs} columns={columns} initialState={{ pagination: { paginationModel: { pageSize: 5 } } }} pageSizeOptions={[5, 25, 50]} disableRowSelectionOnClick />
 		</Box>
 	);
 };

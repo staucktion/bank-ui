@@ -5,21 +5,13 @@ import AuditLogTable from "./components/AuditLogTable";
 function App() {
 	const themeMode = "light";
 
-	const defaultTheme = createTheme({
-		palette: { mode: themeMode },
-		typography: { fontFamily: "Roboto, sans-serif" },
-	});
+	const defaultTheme = createTheme({ palette: { mode: themeMode }, typography: { fontFamily: "Roboto, sans-serif" } });
 
 	return (
 		<>
 			<ThemeProvider theme={defaultTheme}>
 				<CssBaseline />
-				<div
-					style={{
-						height: "100vh",
-						background: "linear-gradient(330deg,rgb(255, 228, 108) 5%,rgb(233, 253, 248) 50%)",
-					}}
-				>
+				<div style={{ height: "100vh", background: "linear-gradient(330deg,rgb(255, 228, 108) 5%,rgb(233, 253, 248) 50%)" }}>
 					<Container maxWidth="lg" sx={{ pt: 5 }}>
 						<Paper elevation={10} sx={{ padding: 3 }}>
 							<Typography variant="h4" color="primary" gutterBottom>
