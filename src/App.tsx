@@ -11,9 +11,9 @@ function App() {
 		<>
 			<ThemeProvider theme={defaultTheme}>
 				<CssBaseline />
-				<div style={{ height: "100vh", background: "linear-gradient(330deg,rgb(255, 228, 108) 5%,rgb(233, 253, 248) 50%)" }}>
-					<Container maxWidth="lg" sx={{ pt: 5 }}>
-						<Paper elevation={10} sx={{ padding: 3 }}>
+				<div style={{ minHeight: "100vh", background: "linear-gradient(330deg,rgb(255, 228, 108) 5%,rgb(233, 253, 248) 50%)" }}>
+					<Container disableGutters maxWidth="lg" sx={{ pt: { xs: 2, md: 4 }, px: { xs: 0.5 } }}>
+						<Paper elevation={10} sx={{ padding: { xs: 1, md: 3 } }}>
 							<Typography variant="h4" color="primary" gutterBottom>
 								Audit Logs
 							</Typography>

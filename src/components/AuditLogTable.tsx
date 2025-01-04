@@ -13,14 +13,9 @@ interface AuditLog {
 }
 
 const columns: GridColDef[] = [
-	{ field: "id", headerName: "ID", width: 90, align: "center", headerAlign: "center" },
-	{ field: "action", headerName: "Action", width: 800 },
-	{
-		field: "timestamp",
-		headerName: "Timestamp",
-		width: 200,
-		valueGetter: (_, row) => formatToLocalTimezone(row.performed_at),
-	},
+	{ field: "id", headerName: "ID", minWidth: 50 },
+	{ field: "action", headerName: "Action", width: 600 },
+	{ field: "timestamp", headerName: "Timestamp", width: 200, valueGetter: (_, row) => formatToLocalTimezone(row.performed_at) },
 ];
 
 const AuditLogTable = () => {
