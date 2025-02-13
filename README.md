@@ -6,7 +6,7 @@
 
 -   Launch bank api. Check [`bank-api`](https://github.com/staucktion/bank-api) repository.
 
--   According to mode: Rename `.env.prod.example` or `.env.dev.example` as `.env` with proper configurations.
+-   Modify `.env.example` as `.env` with proper configurations.
 
 -   Install dependencies.
 
